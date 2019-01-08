@@ -8,7 +8,7 @@ sensor = W1ThermSensor()
 
 def read_temp():
 	now = strftime('%I:%M:%S %p') # 2:05:01 PM
-	temp = sensor.get_temperature()
+	temp = sensor.get_temperature() * 1.8 + 32 # in Fahrenheit
 	return [now, temp]
 
 with open('data.csv', 'w') as f:
