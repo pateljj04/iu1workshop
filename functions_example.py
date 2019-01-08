@@ -1,12 +1,13 @@
 import csv
 from time import time
+from time import strftime
 from time import sleep
 from w1thermsensor import W1ThermSensor
 
 sensor = W1ThermSensor()
 
 def read_temp():
-	now = time().strftime('%I:%M:%S %p') # 2:05:01 PM
+	now = strftime('%I:%M:%S %p') # 2:05:01 PM
 	temp = sensor.get_temperature()
 	return [now, temp]
 
