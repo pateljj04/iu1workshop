@@ -270,6 +270,8 @@ import math
 '...or just %i' % math.pi # Integer
 
 'Raspberry %s' % 'pi!' # String
+
+'%i, %i, %.1f, %s!' % (1, 2, 2.5, 'go') # Mix and match multiple values
 ```
 
 #### Fancy Format Strings

@@ -12,6 +12,7 @@
 import sys
 import os
 import requests
+from mimetypes import guess_type
 from time import strftime
 import firebase_admin
 from firebase_admin import credentials, storage
@@ -26,14 +27,14 @@ bucket = storage.bucket()
 
 with open('stem.jpg','rb', buffering=0) as f:
     image_data = f.read()
+    name, extension = os.path.splitext(f.name)
+    content_type, _ = guess_type(f.name)
 
-# Add the time to the filename: 'stem-upload-2019-03-12-02-38-30-PM.jpg'
-filename = 'stem-upload-%s.jpg' % strftime('%Y-%m-%d-%I-%M-%S-%p')
+    # Add the time to the filename: 'stem-upload-2019-03-12-02-38-30-PM.jpg'
+    filename = '%s-upload-%s%s' % (name, strftime('%Y-%m-%d-%I-%M-%S-%p'), extension)
 
 blob = bucket.blob(filename)
-blob.upload_from_string(
-        image_data,
-        content_type='image/jpg'
-    )
+blob.upload_from_string(image_data, content_type=content_type)
 blob.make_public()
+
 print(blob.public_url)
