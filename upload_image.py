@@ -1,10 +1,20 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
+# Install firebase_admin
+# * https://github.com/firebase/firebase-admin-python
+# * `sudo pip3 install firebase-admin`
+#
+# Setup Firebase
+# * https://console.firebase.google.com/
+# * create a Firebase application
+# * download your credentials .json and name it 'firebase-key.json'. Keep this file private.
+
 import sys
 import os
 import requests
+from time import strftime
 import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import storage
+from firebase_admin import credentials, storage
 
 #image_url = sys.argv[1] #we pass the url as an argument
 
@@ -14,11 +24,13 @@ firebase_admin.initialize_app(cred, {
 })
 bucket = storage.bucket()
 
-my_image = open('stem.jpg','rb', buffering=0)
-image_data = my_image.read()
+with open('stem.jpg','rb', buffering=0) as f:
+    image_data = f.read()
 
-blob = bucket.blob('nameoffile.jpg')
+# Add the time to the filename: 'stem-upload-2019-03-12-02-38-30-PM.jpg'
+filename = 'stem-upload-%s.jpg' % strftime('%Y-%m-%d-%I-%M-%S-%p')
 
+blob = bucket.blob(filename)
 blob.upload_from_string(
         image_data,
         content_type='image/jpg'

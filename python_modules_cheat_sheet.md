@@ -165,7 +165,7 @@ camera.stop_preview()
 
 Make HTTP requests on the internet.
 
-> http://docs.python-requests.org/en/master/
+> http://docs.python-requests.org/en/master/user/quickstart/
 
 [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) requests are how web browsers communicate on the internet. You make a request to a server, another computer on the internet, and it responds.
 * Requests and responses are often called "messages".

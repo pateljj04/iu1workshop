@@ -367,6 +367,7 @@ now = strftime('%I:%M:%S %p')
 |------|-------------|
 | `%Y` | Full year |
 | `%B` | Full month name |
+| `%m` | Month (number) |
 | `%d` | Day of the month |
 | `%I` | Hour (12-hour clock) |
 | `%M` | Minute |
