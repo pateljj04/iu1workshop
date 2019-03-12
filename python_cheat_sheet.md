@@ -128,6 +128,26 @@ Functions on lists:
 * [`min(x)`](https://docs.python.org/3.5/library/functions.html#min)
 * [`max(x)`](https://docs.python.org/3.5/library/functions.html#max)
 
+#### range()
+
+See [The Range Function](https://docs.python.org/3.5/tutorial/controlflow.html#the-range-function)
+
+While not a list, a range is like a convenient list-generator. It starts at zero, and stops before the given number.
+
+```python
+range(5) # Acts like the list, [0, 1, 2, 3, 4]
+```
+
+You can start at a different number.
+```python
+range(5, 10) # Acts like the list, [5, 6, 7, 8, 9]
+```
+
+To print a range, first convert it to a list.
+```python
+print(list(range(5, 10)))
+```
+
 ## Other Data Types
 
 Save these for later. They will come up often, but we won't focus on them here.
@@ -164,6 +184,8 @@ contains key-value pairs. Unlike a sequence, it is indexed by keys instead of nu
 
 ```python
 pie_votes = { 'apple': 31, 'raspberry': 3, 'mud': 0}
+
+apple_votes = pie_votes['apple'] # access items by key
 ```
 
 ## Statements
@@ -222,6 +244,47 @@ x = [1, 2, 3]
 
 Good variable names are important to clean, readable code.
 They should be short and descriptive.
+
+## Formatting Output
+
+Python has lots of ways to convert values into strings.
+
+#### Old string formatting
+
+https://docs.python.org/3.5/tutorial/inputoutput.html#old-string-formatting
+
+Substitutes values into a string at `%` placeholders, applying a format. The format determines the type. You can also control the width, precision and length.
+
+Types we'll use:
+  * `f` floating point number (a float)
+    For floats, precision is the number of digits after the decimal point
+  * `i` integer
+  * `s` string
+
+```python
+import math
+
+'The value of PI is approximately %.2f.' % math.pi  # Floating point number, 2-digits of precision
+'The value of PI is approximately %9.2f.' % math.pi # width of 10.
+
+'...or just %i' % math.pi # Integer
+
+'Raspberry %s' % 'pi!' # String
+```
+
+#### Fancy Format Strings
+
+The [str.format()](https://docs.python.org/3.5/library/stdtypes.html#str.format) is great, powerful, and kinda complicated for a beginner.
+
+The format function substitutes values into a string.
+```python
+from math import pi
+
+"Raspberry {}".format('Pi')
+"Pi is {0}, but pie is {1}".format(pi, 'yum!')
+```
+
+By providing a format specifier, you get great control over how to format the value. It works better than the old style. The downside is there is an overwhelming amount of flexibility. We won't cover them.
 
 ## Functions
 
