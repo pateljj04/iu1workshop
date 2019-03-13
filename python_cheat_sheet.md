@@ -244,6 +244,7 @@ x = [1, 2, 3]
 
 Good variable names are important to clean, readable code.
 They should be short and descriptive.
+* By convention, we use `_` for variables we don't care about.
 
 ## Formatting Output
 
@@ -331,16 +332,19 @@ To write a longer program, you might split it into several files to keep it orga
 * A *module* is a file of Python that you *import* to use in a script or another module.
   A module can have sub-modules.
 
+Once you `import` a module, you can use all the functions it provides.
+
 ```python
 import time # import the time module
 
-time.sleep() # access to the functions "through" the imported module
+time.sleep(1) # access to the functions "through" the imported module
+print('The current time is ' + time.strftime('%I:%M:%S %p'))
 ```
 
-Typically, import just the functions or sub-modules you plan to use:
+It can look "cleaner" to `import` just the things plan to use `from` a module.
 
 ```python
-from time import sleep, strftime # import functions sleep() and strftime() from the time module
+from time import sleep, strftime # import only sleep() and strftime() from the time module
 
 sleep(1) # access the functions directly
 print('The current time is ' + strftime('%I:%M:%S %p'))
@@ -387,9 +391,15 @@ The modes are one of:
 * `'a'` append (add to the end of any existing file)
 * `'r+'` both read and write
 
+Append `'b'` for binary mode (`'rb'` for binary read). Use this for non-text files, like images.
+
 ```python
-with open('data.txt') as f:
-  data = f.read()
+with open('data.txt') as f: # Open a file for reading
+  data = f.read()           # Read the (text) contents
+
+with open('data.txt', 'w') as f: # Open a file for writing
+  f.write('Everybody! Everybody!')
+  f.write('Everybody! Lah-dee-dah-dee-dah!')
 ```
 
 See [Reading and Writing Files](https://docs.python.org/3.5/tutorial/inputoutput.html#reading-and-writing-files) for more file functions: `f.readlines()`, `f.readline()`, `f.write()`.
