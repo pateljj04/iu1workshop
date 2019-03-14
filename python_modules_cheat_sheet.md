@@ -180,9 +180,10 @@ An HTTP POST request asks a server to accept data you are sending it.. A web bro
 ```python
 import requests
 
-api_key   = "your-key-here"
-ifttt_url = "https://maker.ifttt.com/trigger/%s/with/key/%s" % (event, apikey)
-payload   = { "value1" : value1 }
+event     = "your IFTTT event name"
+api_key   = "your-ifttt-key-here"
+ifttt_url = "https://maker.ifttt.com/trigger/%s/with/key/%s" % (event, api_key)
+payload   = { "value1" : value1, "value2" : value2, "value3" : value3 }
 response  = requests.post(ifttt_url, data=payload)
 ```
 

@@ -4,8 +4,8 @@ from w1thermsensor import W1ThermSensor
 
 sensor = W1ThermSensor()
 
-	now = time().strftime('%I:%M:%S %p')
-	temp = sensor.get_temperature()
+now = time().strftime('%I:%M:%S %p')
+temp = sensor.get_temperature()
 
 event = "TempPi"
 apikey = "your-key-here"

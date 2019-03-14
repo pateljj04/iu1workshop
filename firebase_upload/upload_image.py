@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 # Install firebase_admin
-# * https://github.com/firebase/firebase-admin-python
+# * [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)
+# * [Firebase Admin SDK for Python](https://github.com/firebase/firebase-admin-python)
+# * [Reference](https://firebase.google.com/docs/reference/admin/python/)
 # * `sudo pip3 install firebase-admin`
 #
 # Setup Firebase
